@@ -1,4 +1,4 @@
-const BASE = `https://fitnesstrac-kr.herokuapp.com/api`;
+const BASE = "https://fitnesstrac-kr.herokuapp.com/api";
 
 export const loginUser = async (username, password) => {
     try{
@@ -9,10 +9,8 @@ export const loginUser = async (username, password) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                user: {
                     username: username,
                     password: password
-                }
             })
         }
         )
@@ -33,14 +31,13 @@ export const registerPerson = async (username, password) => {
         headers: { 'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            user: {
                 username: username,
                 password: password
-            }
         })
     
    })
    const result = await response.json()
+   console.log(result, "!!!!!!!!!!!!!")
    const token = result.data.token
    localStorage.setItem("token", token);
   localStorage.setItem("username", username);
