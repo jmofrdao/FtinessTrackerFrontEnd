@@ -1,0 +1,11 @@
+{
+  "name": "fitnesstrackerbackend",
+  "version": "1.0.0",
+  "description": "Fitness Tracker Frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Jacob Morris/Scott Wang",
+  "license": "MIT"
+}
