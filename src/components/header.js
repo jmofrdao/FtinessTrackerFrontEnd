@@ -12,6 +12,7 @@ const Header = () => {
         <NavLink to="/">
             Home
         </NavLink>
+        <NavLink to='/login'>Sign Up/Sign In</NavLink>
        </header>
     )
 }
