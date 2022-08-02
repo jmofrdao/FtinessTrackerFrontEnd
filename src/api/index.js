@@ -15,7 +15,7 @@ export const loginUser = async (username, password) => {
         }
         )
         const result = await response.json()
-        const token = result.data.token
+        const token = result.token
         return token
 
     } catch (error){
@@ -32,15 +32,37 @@ export const registerPerson = async (username, password) => {
         },
         body: JSON.stringify({
                 username: username,
-                password: password
+                password: password,
         })
-    
    })
    const result = await response.json()
    console.log(result, "!!!!!!!!!!!!!")
-   const token = result.data.token
+   const token = result.token
+   console.log(token, "!!!!!!!!!!!!!!!!!!!")
    localStorage.setItem("token", token);
-  localStorage.setItem("username", username);
-   return result;
+    localStorage.setItem("username", username);
+   return token;
 
+}
+
+export async function getMyRoutines() {
+    const response = await fetch(`${BASE}/users/:username/routines`,{
+        headers: {
+            'Content-Type': 'application/json',
+
+        },
+    });
+    const result = await response.json();
+    return result;
+}
+
+export async function getUsersMe(token) {
+    const response = await fetch(`${BASE}/users/me`, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+    });
+    const result = await response.json();
+    return result;
 }

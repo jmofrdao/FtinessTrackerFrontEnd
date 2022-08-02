@@ -14,7 +14,8 @@ const Register = ({username,password,setPassword,setUsername, setIsLoggedIn}) =>
        <form id = "registerFlex" onSubmit={handleSubmit}>
             <h1>Register for your Fitness Tracker account</h1>
             <label>Create a username:</label>
-            <input className="registerInputs" 
+            <input 
+            className="registerInputs" 
             placeholder="Create username here"
             value = {username}
             onChange={(event)=>{
@@ -22,11 +23,13 @@ const Register = ({username,password,setPassword,setUsername, setIsLoggedIn}) =>
             }}>
             </input>
             <label>Creat a Password:</label>
-            <input  type='password' className="registerInputs" 
+            <input  
+            type='password' 
+            className="registerInputs" 
             placeholder="Create password here"
             value = {password}
-                onChange={(event)=>{
-                    setPassword(event.target.value)
+            onChange={(event)=>{
+                setPassword(event.target.value)
                 }}></input>
             <button type="submit">Sign Up!</button>
         </form>
