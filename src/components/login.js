@@ -14,7 +14,7 @@ const handleSubmit = async (event) => {
     localStorage.setItem('token', token)
     localStorage.setItem('username', username)
     setUsername(username)
-    navigate('/myRoutines')
+    navigate('/MyRoutines')
 }
 
 const registerButton = async(event) => {

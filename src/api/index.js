@@ -66,3 +66,49 @@ export async function getUsersMe(token) {
     const result = await response.json();
     return result;
 }
+
+export const getAllRoutines = async () => {
+    try {
+    const response = await fetch(`${BASE}/routines`, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    const result = await response.json()
+    console.log(result, 'result')
+    if (result.error) throw error
+    return result
+} catch (error) {
+    console.error('Trouble getting routines', error)
+}
+}
+
+export const getAllActivities = async () => {
+    try {
+        const response = await fetch(`${BASE}/activities`, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        const result = await response.json()
+        console.log(result, 'result')
+        if (result.error) throw error
+        return result
+    } catch (error) {
+        console.error('Trouble getting routines', error)
+    }
+}
+
+export const addNewActivity = async () => {
+    const response = await fetch(`${BASE}/activities`, {
+        method:"POST",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({
+              name: 'name',
+              description: 'description'
+          })
+    })
+}

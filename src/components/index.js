@@ -1,9 +1,10 @@
-export { default as Activities } from "./activities";
-export { default as Home } from "./home";
-export { default as Register } from "./register";
-export { default as Routines } from "./routines";
-export { default as Login } from "./login";
-export { default as MyRoutines } from "./myRoutines";
-export { default as App } from "./app";
-export { default as Header } from "./header";
+export { default as Activities } from "./Activities";
+export { default as Home } from "./Home";
+export { default as Register } from "./Register";
+export { default as Routines } from "./Routines";
+export { default as Login } from "./Login";
+export { default as MyRoutines } from "./MyRoutines";
+export { default as App } from "./App";
+export { default as Header } from "./Header";
 export { default as Logout } from "./logout";
+export {default as AddActivity} from "./AddActivity"

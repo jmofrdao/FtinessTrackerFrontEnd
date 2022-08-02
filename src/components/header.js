@@ -6,7 +6,7 @@ import {useNavigate} from "react-router";
 
 
 
-const Header = ({isLoggedIn}) => {
+const Header = ({isLoggedIn, setIsLoggedIn}) => {
 
     const navigate = useNavigate();
     function handleUserLogout() {
@@ -28,6 +28,8 @@ const Header = ({isLoggedIn}) => {
             <NavLink to="/MyRoutines">
                 My Routines
             </NavLink>
+            <NavLink to='/Routines'>Routines</NavLink>
+            <NavLink to='/Activities'> Activities</NavLink>
             <button onClick={handleUserLogout}>Logout</button>
         </>  
             ) : (
@@ -37,6 +39,8 @@ const Header = ({isLoggedIn}) => {
         </NavLink>
         
             <NavLink to='/Login'>Sign Up/Sign In</NavLink>
+            <NavLink to='/Routines'>Routines</NavLink>
+            <NavLink to='/Activities'> Activities</NavLink>
         </>
             ) 
             }          

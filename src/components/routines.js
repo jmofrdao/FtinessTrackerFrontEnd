@@ -1,9 +1,32 @@
+import { getAllRoutines } from "../api"
+import React, {useState, useEffect} from 'react'
 
 
+const Routines = ({routines, setRoutines}) => {
+    async function fetchAllRoutines () {
+const fetchRoutines = await getAllRoutines()
 
-const Routines = () => {
+setRoutines(fetchRoutines)
+    }
+
+    useEffect(()=> {
+fetchAllRoutines()
+    }, [])
+
+    const allRoutines = routines.map((routine)=> {
+        return (
+            <div key={routine._id}>
+                <h3>{routine.name}</h3>
+                <p>{routine.goal}</p>
+                <p>{routine.creatorName}</p>
+            </div>
+        )
+    })
     return (
-        <div>Hello</div>
+        <div>
+            <h1>Routines</h1>
+            {allRoutines}
+            </div>
     )
 }
 
