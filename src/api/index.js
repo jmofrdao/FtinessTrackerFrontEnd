@@ -36,9 +36,7 @@ export const registerPerson = async (username, password) => {
         })
    })
    const result = await response.json()
-   console.log(result, "!!!!!!!!!!!!!")
    const token = result.token
-   console.log(token, "!!!!!!!!!!!!!!!!!!!")
    localStorage.setItem("token", token);
     localStorage.setItem("username", username);
    return token;
@@ -99,7 +97,7 @@ export const getAllActivities = async () => {
     }
 }
 
-export const addNewActivity = async () => {
+export const addNewActivity = async ( token, nameActivity, description) => {
     const response = await fetch(`${BASE}/activities`, {
         method:"POST",
         headers: {
@@ -107,8 +105,10 @@ export const addNewActivity = async () => {
             'Authorization': `Bearer ${token}`
           },
           body: JSON.stringify({
-              name: 'name',
-              description: 'description'
-          })
-    })
+                name: nameActivity,
+                description: description, 
+          }),
+    });
+    const result = await response.json();
+    return result;
 }

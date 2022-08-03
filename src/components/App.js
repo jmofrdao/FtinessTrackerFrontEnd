@@ -41,7 +41,7 @@ const App = () => {
             element={<Activities activities={activities} setActivities={setActivities} isLoggedIn={isLoggedIn}/>}/>
             <Route 
             path='/AddActivity'
-            element={<AddActivity isLoggedIn={isLoggedIn}/>}/>
+            element={<AddActivity isLoggedIn={isLoggedIn} setActivities={setActivities} activities={activities}/>}/>
             </Routes>
             ) : (
                 <div>
