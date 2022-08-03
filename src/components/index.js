@@ -8,3 +8,4 @@ export { default as App } from "./App";
 export { default as Header } from "./Header";
 export { default as Logout } from "./Logout";
 export { default as AddActivity} from "./AddActivity"
+export {default as AddRoutine} from "./AddRoutine"
