@@ -130,3 +130,22 @@ export const addNewRoutine = async (token, nameRoutine, goal, isPublic) => {
     console.log(result, 'result!!!')
     return result
 }
+
+export const editRoutine = async (token, routineId, name, goal, isPublic) => {
+    const response = await fetch(`${BASE}/routines/:${routineId}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+            post: {
+                name: name,
+                goal: goal,
+                isPublic: isPublic,
+            },
+        }),
+    });
+    const result = await response.json();
+    return result;
+}
