@@ -112,3 +112,21 @@ export const addNewActivity = async ( token, nameActivity, description) => {
     const result = await response.json();
     return result;
 }
+
+export const addNewRoutine = async (token, nameRoutine, goal, isPublic) => {
+    const response = await fetch(`${BASE}/routines`, {
+        method:"POST",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            name: nameRoutine,
+            goal: goal,
+            isPublic: isPublic
+        })
+    })
+    const result = await response.json()
+    console.log(result, 'result!!!')
+    return result
+}
