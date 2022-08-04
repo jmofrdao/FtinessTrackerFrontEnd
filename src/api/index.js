@@ -160,3 +160,16 @@ export const removeRoutine = async (token, routineId) => {
     const result = await response.json()
     return result
 }
+
+export const routineActivity = async (activityId, count, duration) => {
+    const response = await fetch (`${BASE}/routines/${routineId}/activities`, {
+        method: "POST",
+        body: JSON.stringify({
+            activityId: activityId,
+            count: count,
+            duration: duration,
+        })
+    });
+    const result = await response.json();
+    return result;
+}

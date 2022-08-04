@@ -1,7 +1,7 @@
 import { getAllRoutines } from "../api"
 import React, {useState, useEffect} from 'react'
 import { NavLink } from "react-router-dom"
-import {EditRoutine, DeleteRoutine} from "./index"
+import {EditRoutine, DeleteRoutine, RoutineActivity} from "./index"
 
 
 
@@ -26,6 +26,7 @@ fetchAllRoutines()
                 {
                 localStorage.getItem("token") && routine.creatorName === localStorage.getItem("username") ?
                 <>
+                <button><RoutineActivity/></button>
                 <EditRoutine _id = {routine.id} routines= {routines} setRoutines={setRoutines}/>
                 <DeleteRoutine _id={routine.id} routines={routines} setRoutines={setRoutines}/>
                 </>
