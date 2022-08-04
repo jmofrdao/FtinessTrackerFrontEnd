@@ -1,35 +1,62 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {Navigate, useNavigate} from "react-router-dom";
-import { getAllActivities } from "../api";
+import { getAllActivities, getAllRoutines, routineActivity } from "../api";
 
-const RoutineActivity = () => {
-    const [activity, setActivity] = useState ([]) 
+const RoutineActivity = ({_id, setRoutines, activityname}) => {
+    const [activities, setActivities] = useState ([]) 
+    const [count, setCount] = useState ("")
+    const [duration, setDuration] = useState("")
+    const [selectedActivity, setSelectedActivity] = useState({})
         async function fetchRountineActivities () {
             const getRoutineActivities = await getAllActivities()
-            setActivity(getRoutineActivities)
+            setActivities(getRoutineActivities)
         }
 
-        useState(() => {
+        useEffect(() => {
             fetchRountineActivities()
         }, [])
 
-        
+        async function handleSubmit(event) {
+            event.preventDefault()
+            console.log(selectedActivity,"%%%%%%%%%%%%%%%%%")
+            const newRoutineActivity = await routineActivity(selectedActivity.id, _id, count, duration) 
+            newRoutineActivity
+            const addedRoutineActivity = await getAllRoutines()
+            setRoutines(addedRoutineActivity)
+        }
     
     return(
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>
                     Activities
                 </label>
-                    <select value={activity} onChange={setActivity}>
-                        <option>
+                    <select value={selectedActivity} onChange={(event) => {
+                        console.log(event.target.value, "*************")
+                        setSelectedActivity(event.target.value)
+                    }}>
                         {
-                            activity.map((element) => {
-                                return <option value={element.name}>{element.name}</option>
+                            activities.map((activity) => {
+                                return <option value={activity.id}>{activity.name}</option>
                             })
                         }
-                        </option>
+                        
+                        
                     </select>
+                    <label>
+                        Count
+                        <input type="text" value={count} onChange={(event) => {
+                            setCount(event.target.value)
+                        }}/>
+                        
+                    </label>
+                    <label>
+                        Duration
+                        <input type="text" value={duration} onChange={(event) => {
+                            setDuration(event.target.value)
+                        }}/>
+                    </label>
+                    <button type="submit">SUBMIT</button>
                 
             </form>
         </div>
