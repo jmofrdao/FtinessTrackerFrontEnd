@@ -30,7 +30,6 @@ const EditRoutine = ({_id, routines, setRoutines}) => {
         setRoutines(newEditedRoutine)
         setName("")
         setGoal("")
-        setIsPublic(null)
         }
         
     }
