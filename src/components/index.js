@@ -10,3 +10,4 @@ export { default as Logout } from "./Logout";
 export { default as AddActivity} from "./AddActivity";
 export {default as AddRoutine} from "./AddRoutine";
 export {default as EditRoutine} from "./EditRoutine";
+export {default as DeleteRoutine} from "./DeleteRoutine"

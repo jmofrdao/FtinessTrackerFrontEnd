@@ -45,7 +45,7 @@ const EditRoutine = ({_id, routines, setRoutines}) => {
         <>
             <div>
                 <div>
-                    <h1>Edit Routine</h1>
+                    <h4>Edit Routine</h4>
                     {
                         error && error.message ? <h3>There Is Already A Post With That Name</h3> : null
                     }
