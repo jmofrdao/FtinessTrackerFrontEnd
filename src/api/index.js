@@ -148,3 +148,15 @@ export const editRoutine = async (token, routineId, name, goal, isPublic) => {
     console.log(result, "!@!#!@#!#@")
     return result;
 }
+
+export const removeRoutine = async (token, routineId) => {
+    const response = await fetch (`${BASE}/routines/${routineId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`,
+        }
+    })
+    const result = await response.json()
+    return result
+}
