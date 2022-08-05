@@ -9,19 +9,19 @@ const MyRoutines = ({setMyRoutines, myRoutines}) => {
 
     
     useEffect(() => {
-        let token = localStorage.getItem("token");
-        let token2 = getUsersMe(token);
-        if (token === token2) {
+
           async function fetchMyRoutines() {
+            let token = localStorage.getItem("token");
+            const myUsername = await getUsersMe(token);
+            console.log(myUsername.username, "&&&&&&&&&&&&&&&&&")
             const myNewRoutines = await getMyRoutines();
             setMyRoutines(myNewRoutines);
           }
           fetchMyRoutines();
-        }
       }, []);
-    
+    // console.log(myNewRoutines, "!!!!!!!!!!!!!!!!!!!!!$$$$$")
     return (
-        <div>Hello</div>
+        <div> Hello </div>
     )
 }
 

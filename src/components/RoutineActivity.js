@@ -18,7 +18,6 @@ const RoutineActivity = ({_id, setRoutines, activityname}) => {
 
         async function handleSubmit(event) {
             event.preventDefault()
-            console.log(selectedActivity,"%%%%%%%%%%%%%%%%%")
             const newRoutineActivity = await routineActivity(selectedActivity.id, _id, count, duration) 
             newRoutineActivity
             const addedRoutineActivity = await getAllRoutines()
@@ -32,7 +31,6 @@ const RoutineActivity = ({_id, setRoutines, activityname}) => {
                     Activities
                 </label>
                     <select value={selectedActivity} onChange={(event) => {
-                        console.log(event.target.value, "*************")
                         setSelectedActivity(event.target.value)
                     }}>
                         {

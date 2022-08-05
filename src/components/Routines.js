@@ -48,7 +48,6 @@ fetchAllRoutines()
         )
 
     })
-    console.log(allRoutines, "!!!!!!!!!!!!!!!!!!!!")
     return (
         <div>
             <h1>Routines</h1>

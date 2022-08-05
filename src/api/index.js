@@ -51,6 +51,7 @@ export async function getMyRoutines() {
         },
     });
     const result = await response.json();
+    console.log(result, "Result!!!!")
     return result;
 }
 
@@ -62,6 +63,7 @@ export async function getUsersMe(token) {
         },
     });
     const result = await response.json();
+    console.log(result, "^^^^^^^^^^^^^^^")
     return result;
 }
 
@@ -73,7 +75,6 @@ export const getAllRoutines = async () => {
         },
     })
     const result = await response.json()
-    console.log(result, 'result')
     if (result.error) throw error
     return result
 } catch (error) {
@@ -89,7 +90,6 @@ export const getAllActivities = async () => {
             },
         })
         const result = await response.json()
-        console.log(result, 'result')
         if (result.error) throw error
         return result
     } catch (error) {
@@ -127,7 +127,6 @@ export const addNewRoutine = async (token, nameRoutine, goal, isPublic) => {
         })
     })
     const result = await response.json()
-    console.log(result, 'result!!!')
     return result
 }
 
@@ -145,7 +144,6 @@ export const editRoutine = async (token, routineId, name, goal, isPublic) => {
         })
     });
     const result = await response.json();
-    console.log(result, "!@!#!@#!#@")
     return result;
 }
 

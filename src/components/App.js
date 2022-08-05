@@ -11,9 +11,9 @@ const App = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [isLoggedIn, setIsLoggedIn] = useState(false)
-    // const [myRoutines, setMyRoutines] = useState([])
     const [routines, setRoutines] = useState([])
     const [activities, setActivities] = useState([])
+    const [myRoutines, setMyRoutines] = useState([])
 
     useEffect (()=>{
         if(localStorage.getItem("token")){
@@ -32,7 +32,8 @@ const App = () => {
             />
             <Route
             path = "/MyRoutines"
-            element={<MyRoutines />}
+            element={<MyRoutines myRoutines={myRoutines} setMyRoutines={setMyRoutines}/>}
+
             />
             <Route 
             path='/Routines'

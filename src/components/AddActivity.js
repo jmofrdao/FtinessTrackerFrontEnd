@@ -17,8 +17,6 @@ const AddActivity = ({setActivities, activities}) => {
             description,
         );
 
-        console.log(freshActivity, "!!!!!!!!!!!!!!!!")
-
         if (freshActivity.error) {
             setError(freshActivity)
         } else {
