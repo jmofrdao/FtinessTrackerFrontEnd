@@ -37,7 +37,7 @@ const RoutineActivity = ({_id, setRoutines, activityname}) => {
                     }}>
                         {
                             activities.map((activity) => {
-                                return <option value={activity.id}>{activity.name}</option>
+                                return <option value={activity.name}>{activity.name}</option>
                             })
                         }
                         
