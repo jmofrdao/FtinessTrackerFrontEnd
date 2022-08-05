@@ -51,6 +51,7 @@ export async function getMyRoutines() {
         },
     });
     const result = await response.json();
+    console.log(result, "Result!!!!")
     return result;
 }
 
@@ -62,6 +63,7 @@ export async function getUsersMe(token) {
         },
     });
     const result = await response.json();
+    console.log(result, "^^^^^^^^^^^^^^^")
     return result;
 }
 
