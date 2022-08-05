@@ -171,5 +171,6 @@ export const routineActivity = async (activityId, routineId, count, duration) =>
         })
     });
     const result = await response.json();
+    console.log(result, "!#$!@!#$")
     return result;
 }
