@@ -15,18 +15,30 @@ setRoutines(fetchRoutines)
     useEffect(()=> {
 fetchAllRoutines()
     }, [])
-
+    
     const allRoutines = routines.map((routine)=> {
+        
 
         return (
             <div key={routine.id}>
                 <h2>Name: {routine.name}</h2>
                 <p>Goal: {routine.goal}</p>
                 <p>Username: {routine.creatorName}</p>
+                {routine.activities ?
+                routine.activities.map((element) => {
+            return (
+                <div key={element.id}>
+                <h2>Activity</h2>
+                <h3>Name: {element.name}</h3>
+                <p>Description: {element.description}</p>
+                <p>Duration: {element.duration}</p>
+                </div>
+            )
+        }): null }
                 {
                 localStorage.getItem("token") && routine.creatorName === localStorage.getItem("username") ?
                 <>
-                <button><RoutineActivity/></button>
+                <RoutineActivity  _id={routine.id} setRoutines={setRoutines} />
                 <EditRoutine _id = {routine.id} routines= {routines} setRoutines={setRoutines}/>
                 <DeleteRoutine _id={routine.id} routines={routines} setRoutines={setRoutines}/>
                 </>
@@ -34,7 +46,9 @@ fetchAllRoutines()
             }
             </div>
         )
+
     })
+    console.log(allRoutines, "!!!!!!!!!!!!!!!!!!!!")
     return (
         <div>
             <h1>Routines</h1>
