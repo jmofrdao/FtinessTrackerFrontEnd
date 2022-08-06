@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
-import {editRoutine, getAllRoutines} from "../api";
+import {editRoutine, getAllRoutines, getMyRoutines} from "../api";
 
 
-const EditRoutine = ({_id, routines, setRoutines}) => {
+const EditRoutine = ({myRoutineId, myRoutines, setMyRoutines}) => {
     const [name, setName] = useState("");
     const [goal, setGoal] = useState("");
     const [isPublic, setIsPublic] = useState(null);
@@ -12,7 +12,8 @@ const EditRoutine = ({_id, routines, setRoutines}) => {
     async function handleSubmit(event) {
         event.preventDefault();
         const token = localStorage.getItem("token");
-        const routineId= _id;
+        const username = localStorage.getItem('username')
+        const routineId= myRoutineId;
         const freshRoutine = await editRoutine(
             token,
             routineId,
@@ -25,9 +26,9 @@ const EditRoutine = ({_id, routines, setRoutines}) => {
         } else {
             setError(null)
             freshRoutine
-            const newEditedRoutine = await getAllRoutines()
+            const newEditedRoutine = await getMyRoutines(username)
 
-        setRoutines(newEditedRoutine)
+        setMyRoutines(newEditedRoutine)
         setName("")
         setGoal("")
         }
@@ -40,14 +41,14 @@ const EditRoutine = ({_id, routines, setRoutines}) => {
     }
     useEffect(() => {
         
-    }, [routines])
+    }, [myRoutines])
     return (
         <>
             <div>
                 <div>
                     <h4>Edit Routine</h4>
                     {
-                        error && error.message ? <h3>There Is Already A Post With That Name</h3> : null
+                        error && error.message ? <h3>There Is Already A Routine With That Name</h3> : null
                     }
                 </div>
                 <form onSubmit={handleSubmit}>
