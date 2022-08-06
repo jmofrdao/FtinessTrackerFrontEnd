@@ -15,8 +15,8 @@ export const loginUser = async (username, password) => {
         }
         )
         const result = await response.json()
-        const token = result.token
-        return token
+       
+        return result
 
     } catch (error){
         console.error('Trouble fetching users', error)
@@ -36,10 +36,10 @@ export const registerPerson = async (username, password) => {
         })
    })
    const result = await response.json()
-   const token = result.token
-   localStorage.setItem("token", token);
-    localStorage.setItem("username", username);
-   return token;
+   console.log(result, 'result')
+   
+   
+   return result;
 
 }
 

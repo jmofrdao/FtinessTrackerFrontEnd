@@ -3,21 +3,22 @@ import {NavLink, useNavigate} from "react-router-dom";
 
 
 
-const Logout = ({setIsLoggedIn}) => {
+const Logout = ({setIsLoggedIn, setUsername, setPassword}) => {
     const navigate = useNavigate();
     function handleUserLogout() {
         setIsLoggedIn (false);
         localStorage.removeItem("token");
         localStorage.removeItem("username");
         navigate("/");
+        setUsername('')
+        setPassword('')
     }
 
     const username = localStorage.getItem("username");
 
     return (
         <>
-        <h1>Are you sure you want to logout?</h1>
-        <h2>{username}?</h2>
+        <h1>Are you sure you want to logout {username}?</h1>
         <NavLink to="/">
         Return Home
         </NavLink>

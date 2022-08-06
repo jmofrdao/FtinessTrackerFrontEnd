@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {Routes, Route} from "react-router-dom";
-import {Home, Header, Login, MyRoutines, Routines, AddActivity, AddRoutine, RoutineActivity} from "./index";
+import {Home, Header, Login, MyRoutines, Routines, AddActivity, AddRoutine, RoutineActivity, Logout} from "./index";
 import Activities from "./Activities";
 import Register from "./Register";
 
@@ -22,7 +22,7 @@ const App = () => {
         },[]) 
     return (
         <div>
-        <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+        <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setUsername={setUsername} setPassword={setPassword}/>
         <div>
             {isLoggedIn ? (
         <Routes>
@@ -48,6 +48,9 @@ const App = () => {
             <Route 
             path='/AddActivity'
             element={<AddActivity isLoggedIn={isLoggedIn} setActivities={setActivities} activities={activities}/>}/>
+            <Route 
+            path='/Logout'
+            element={<Logout setUsername={setUsername} setPassword={setPassword} setIsLoggedIn={setIsLoggedIn}/>}/>
             </Routes>
             ) : (
                 <div>
