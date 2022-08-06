@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
 import {Navigate, useNavigate} from "react-router-dom";
-import { getAllActivities, getAllRoutines, routineActivity } from "../api";
+import { getAllActivities, getAllRoutines, getMyRoutines, routineActivity } from "../api";
 
-const RoutineActivity = ({_id, setRoutines, activityname}) => {
+const RoutineActivity = ({myRoutineId, setMyRoutines, activityname}) => {
     const [activities, setActivities] = useState ([]) 
     const [count, setCount] = useState (0)
     const [duration, setDuration] = useState(0)
@@ -19,11 +19,12 @@ const RoutineActivity = ({_id, setRoutines, activityname}) => {
 
         async function handleSubmit(event) {
             event.preventDefault()
+            const username = localStorage.getItem('username')
             console.log(selectedActivity[0],"%%%%%%%%%%%%%%%%%")
-            const newRoutineActivity = await routineActivity(selectedActivity[0], _id, count, duration) 
+            const newRoutineActivity = await routineActivity(selectedActivity[0], myRoutineId, count, duration) 
             newRoutineActivity
-            const addedRoutineActivity = await getAllRoutines()
-            setRoutines(addedRoutineActivity)
+            const addedRoutineActivity = await getMyRoutines(username)
+            setMyRoutines(addedRoutineActivity)
         }
     
     return(

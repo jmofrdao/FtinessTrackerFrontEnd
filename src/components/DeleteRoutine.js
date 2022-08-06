@@ -1,19 +1,20 @@
 import React, {useEffect} from 'react'
-import { getAllRoutines, removeRoutine } from "../api"
+import { getAllRoutines, getMyRoutines, getUsersMe, removeRoutine } from "../api"
 
-const DeleteRoutine = ({routines, setRoutines, _id}) => {
+const DeleteRoutine = ({myRoutines, setMyRoutines, myRoutineId}) => {
 async function handleDelete (event) {
     event.preventDefault()
     const token = localStorage.getItem('token')
-    const routineId = _id
+    const routineId = myRoutineId
+    const username = localStorage.getItem('username')
     await removeRoutine(token, routineId)
-    const newRoutine = await getAllRoutines()
-    setRoutines(newRoutine)
+    const newMyRoutines = await getMyRoutines (username)
+    setMyRoutines(newMyRoutines)
 }
 
 useEffect(()=> {
 
-}, [routines])
+}, [myRoutines])
     return (
         <div onClick={handleDelete}>
             <button type='submit'>DELETE</button>

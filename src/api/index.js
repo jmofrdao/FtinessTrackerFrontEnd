@@ -43,8 +43,8 @@ export const registerPerson = async (username, password) => {
 
 }
 
-export async function getMyRoutines() {
-    const response = await fetch(`${BASE}/users/:username/routines`,{
+export async function getMyRoutines(username) {
+    const response = await fetch(`${BASE}/users/${username}/routines`,{
         headers: {
             'Content-Type': 'application/json',
 

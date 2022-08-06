@@ -22,7 +22,7 @@ const AddRoutine = ({routines, setRoutines}) => {
         } else {
         setError(null)
         setRoutines([...routines, freshRoutine])
-        navigate('/Routines')
+        navigate('/MyRoutines')
         }
     }
 

@@ -1,7 +1,7 @@
 import { getAllRoutines } from "../api"
 import React, {useState, useEffect} from 'react'
 import { NavLink } from "react-router-dom"
-import {EditRoutine, DeleteRoutine, RoutineActivity} from "./index"
+
 
 
 
@@ -32,18 +32,11 @@ fetchAllRoutines()
                 <h3>Name: {element.name}</h3>
                 <p>Description: {element.description}</p>
                 <p>Duration: {element.duration}</p>
+                <p>Count: {element.count}</p>
                 </div>
             )
         }): null }
-                {
-                localStorage.getItem("token") && routine.creatorName === localStorage.getItem("username") ?
-                <>
-                <RoutineActivity  _id={routine.id} setRoutines={setRoutines} />
-                <EditRoutine _id = {routine.id} routines= {routines} setRoutines={setRoutines}/>
-                <DeleteRoutine _id={routine.id} routines={routines} setRoutines={setRoutines}/>
-                </>
-                : null
-            }
+                
             </div>
         )
 
@@ -52,12 +45,7 @@ fetchAllRoutines()
     return (
         <div>
             <h1>Routines</h1>
-            { localStorage.getItem('token') && isLoggedIn ?
-            <div>
-            <NavLink to='/AddRoutine'>Add New Routine</NavLink>
-            </div>
-            : null
-    }
+           
             <div>{allRoutines}</div>
             </div>
     )

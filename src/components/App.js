@@ -11,7 +11,7 @@ const App = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [isLoggedIn, setIsLoggedIn] = useState(false)
-    // const [myRoutines, setMyRoutines] = useState([])
+    const [myRoutines, setMyRoutines] = useState([])
     const [routines, setRoutines] = useState([])
     const [activities, setActivities] = useState([])
 
@@ -32,7 +32,7 @@ const App = () => {
             />
             <Route
             path = "/MyRoutines"
-            element={<MyRoutines />}
+            element={<MyRoutines setMyRoutines={setMyRoutines} myRoutines={myRoutines}/>}
             />
             <Route 
             path='/Routines'
