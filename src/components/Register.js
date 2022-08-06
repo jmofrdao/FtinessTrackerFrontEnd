@@ -20,6 +20,8 @@ const Register = ({username,password,setPassword,setUsername, setIsLoggedIn}) =>
              setMyResult(result)
              localStorage.setItem("token", token)
             localStorage.setItem("username", username )
+            setUsername('')
+            setPassword('')
          }
          
         
