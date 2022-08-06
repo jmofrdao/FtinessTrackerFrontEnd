@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { loginUser } from '../api'
 
@@ -7,14 +7,24 @@ import { loginUser } from '../api'
 
 const Login = ({username,password,setPassword,setUsername, isLoggedIn, setIsLoggedIn}) => {
     let navigate = useNavigate()
+    const [error, setError] = useState(null)
 const handleSubmit = async (event) => {
     event.preventDefault()
-    const token = await loginUser(username, password)
-    token ? setIsLoggedIn(true) : false
+    const result = await loginUser(username, password)
+    console.log(result, 'token')
+    const token = result.token
+    if (result.error) {
+        setError(result)
+             setIsLoggedIn(false)
+    }
+     else if (token) {
+        setError(null)
     localStorage.setItem('token', token)
     localStorage.setItem('username', username)
     setUsername(username)
+    setIsLoggedIn(true)
     navigate('/MyRoutines')
+     }
 }
 
 const registerButton = async(event) => {
@@ -25,6 +35,9 @@ const registerButton = async(event) => {
         <form
         onSubmit={handleSubmit}
         >
+            {
+                error && error.message ? <h3>{error.message}</h3> : null
+            }
             <label>
                 Username: 
             </label>

@@ -6,15 +6,9 @@ import {useNavigate} from "react-router";
 
 
 
-const Header = ({isLoggedIn, setIsLoggedIn}) => {
+const Header = ({isLoggedIn, setIsLoggedIn, setUsername, setPassword}) => {
 
-    const navigate = useNavigate();
-    function handleUserLogout() {
-        setIsLoggedIn (false);
-        localStorage.removeItem("token");
-        localStorage.removeItem("username");
-        navigate("/");
-    }
+    
 
     return (
     <div>
@@ -30,7 +24,7 @@ const Header = ({isLoggedIn, setIsLoggedIn}) => {
             </NavLink>
             <NavLink to='/Routines'>Routines</NavLink>
             <NavLink to='/Activities'> Activities</NavLink>
-            <button onClick={handleUserLogout}>Logout</button>
+            <NavLink to='/Logout'>Logout</NavLink>
         </>  
             ) : (
         <>
