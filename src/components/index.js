@@ -12,3 +12,4 @@ export {default as AddRoutine} from "./AddRoutine";
 export {default as EditRoutine} from "./EditRoutine";
 export {default as DeleteRoutine} from "./DeleteRoutine"
 export {default as RoutineActivity} from "./RoutineActivity";
+export {default as DeleteRoutineActivity} from "./DeleteRoutineActivity"
