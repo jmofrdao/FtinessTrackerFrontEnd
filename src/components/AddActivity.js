@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {addNewActivity} from "../api";
 import {Navigate, useNavigate} from "react-router-dom";
+import "./css/AddActivity.css";
 
 
 const AddActivity = ({setActivities, activities}) => {
@@ -31,7 +32,7 @@ const AddActivity = ({setActivities, activities}) => {
      }
      return (
         <>
-        <div>Add a Activity</div>
+        <div id="addActivityTitle">Add a Activity</div>
         {
             error && error.message ? <h3>{error.message}</h3>: null
 
@@ -39,7 +40,7 @@ const AddActivity = ({setActivities, activities}) => {
 
         }
         <form onSubmit={handleSubmit}>
-            <div>
+            <div className="inputDiv">
                 <input
                 className="name"
                 placeholder="Add Name"
@@ -58,7 +59,7 @@ const AddActivity = ({setActivities, activities}) => {
                 />
 
             </div>
-            <button type="submit">
+            <button type="submit" className="createButton">
                 CREATE
             </button>
         

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import { getAllActivities } from "../api"
 import { NavLink } from "react-router-dom"
+import "./css/Activities.css"
 
 
 
@@ -25,11 +26,11 @@ const Activities = ({activities, setActivities, isLoggedIn}) => {
         )
     })
     return (
-        <div>
-            <h1> Activities</h1>
+        <div className="activitiesDiv">
+            <h1 id="activitiesTitle"> Activities</h1>
             { localStorage.getItem('token') && isLoggedIn ?
             <div>
-            <NavLink to='/AddActivity'>Add New activity</NavLink>
+            <NavLink to='/AddActivity' id="activitiesNavLink">Add New activity</NavLink>
             </div>
             : null
     }

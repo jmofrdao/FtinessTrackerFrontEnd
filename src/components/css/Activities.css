@@ -1,0 +1,17 @@
+.activitiesDiv {
+    background-color: grey;
+    padding-bottom: 1px;
+}
+
+#activitiesTitle {
+    text-align: center;
+    text-decoration: bold;
+}
+
+#activitiesNavLink:visited {
+    color: rgb(172, 31, 31);
+}
+
+#activitiesNavLink {
+    text-decoration: none;
+} 
