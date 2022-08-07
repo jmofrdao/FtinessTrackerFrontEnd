@@ -1,13 +1,15 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {getMyRoutines, getUsersMe} from "../api";
-import {EditRoutine, RoutineActivity, DeleteRoutine} from './index'
+import {EditRoutine, RoutineActivity, DeleteRoutine, DeleteRoutineActivity} from './index'
 import { NavLink } from "react-router-dom";
 
 
 
 
 const MyRoutines = ({setMyRoutines, myRoutines}) => {
+  const [isShown, setIsShown] = useState(false)
+  const [isShown2, setIsShown2] = useState(false)
 async function fetchMyRoutines() {
 const token = localStorage.getItem('token')
 const username = localStorage.getItem('username')
@@ -16,6 +18,13 @@ if (user.username === username) {
   const allMyRoutines = await getMyRoutines (username)
   setMyRoutines(allMyRoutines)
 }
+}
+async function buttonClick () {
+  setIsShown(current => !current)
+}
+
+async function buttonClick2 () {
+  setIsShown2(current => !current)
 }
     
     useEffect(() => {
@@ -35,6 +44,7 @@ if (user.username === username) {
                 <p>Description: {activity.description}</p>
                 <p>Duration: {activity.duration}</p>
                 <p>Count: {activity.count}</p>
+                <DeleteRoutineActivity setMyRoutines={setMyRoutines} myRoutines={myRoutines} routineActivityId={activity.routineActivityId}/>
               </div>
             )
           })
@@ -43,15 +53,37 @@ if (user.username === username) {
            {
                 localStorage.getItem("token") && myRoutine.creatorName === localStorage.getItem("username") ?
                 <>
-                <RoutineActivity  myRoutineId={myRoutine.id} setMyRoutines={setMyRoutines} />
-                <EditRoutine myRoutineId= {myRoutine.id} myRoutines= {myRoutines} setMyRoutines={setMyRoutines}/>
+                <button onClick={buttonClick}>Add Activity to Routine</button>
+                {
+                  isShown &&
+                  
+                   <RoutineActivity  myRoutineId={myRoutine.id} setMyRoutines={setMyRoutines} />
+                   
+                  
+                }
+                <button onClick={buttonClick2}>Edit Routine</button>
+                {
+                  isShown2 && 
+                  
+                  <EditRoutine myRoutineId= {myRoutine.id} myRoutines= {myRoutines} setMyRoutines={setMyRoutines}/> 
+                  
+                  
+                  
+                  
+              
+                }
+                
+                
                 <DeleteRoutine myRoutineId={myRoutine.id} myRoutines={myRoutines} setMyRoutines={setMyRoutines}/>
                 </>
                 : null
             }
         </div>
       )
+    
     })
+console.log(myRoutines, 'please')
+ 
     return (
         <div>
           <h1>My Routines</h1>

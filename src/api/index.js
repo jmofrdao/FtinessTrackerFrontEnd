@@ -179,3 +179,16 @@ export const routineActivity = async (activityId, routineId, count, duration) =>
     console.log(result, "!#$!@!#$")
     return result;
 }
+
+export const deleteRoutineActivity = async (routineActivityId, token) => {
+const response = await fetch (`${BASE}/routine_activities/${routineActivityId}`, {
+    method: "DELETE",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+    }
+})
+const result = await response.json()
+console.log(result, "ra result")
+return result
+}
