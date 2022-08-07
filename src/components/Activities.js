@@ -19,7 +19,7 @@ const Activities = ({activities, setActivities, isLoggedIn}) => {
 
     const allActivities = activities.map((activity)=> {
         return (
-            <div key ={activity._id}>
+            <div key ={activity._id} className="singleBlock">
                 <h3>Name: {activity.name}</h3>
                 <p>Description: {activity.description}</p>
             </div>

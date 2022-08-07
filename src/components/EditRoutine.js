@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {editRoutine, getAllRoutines, getMyRoutines} from "../api";
+import "./css/EditRoutine.css"
 
 
 const EditRoutine = ({myRoutineId, myRoutines, setMyRoutines}) => {
@@ -54,6 +55,7 @@ const EditRoutine = ({myRoutineId, myRoutines, setMyRoutines}) => {
                 <form onSubmit={handleSubmit}>
                     <div>
                         <input
+                        className="inputEdit"
                         id="Edit"
                         placeholder="Edit Name"
                         value={name}
@@ -64,6 +66,7 @@ const EditRoutine = ({myRoutineId, myRoutines, setMyRoutines}) => {
                     </div>
                         <div>
                          <input
+                         className="inputEdit"
                          id="Goal"
                          placeholder="Edit Goal"
                          value={goal}

@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react'
 import { getAllRoutines, getMyRoutines, getUsersMe, removeRoutine } from "../api"
+import "./css/DeleteRoutine.css"
 
 const DeleteRoutine = ({myRoutines, setMyRoutines, myRoutineId}) => {
 async function handleDelete (event) {
@@ -17,7 +18,7 @@ useEffect(()=> {
 }, [myRoutines])
     return (
         <div onClick={handleDelete}>
-            <button type='submit'>DELETE</button>
+            <button type='submit' id="deleteRoutine">DELETE</button>
         </div>
     )
 }
