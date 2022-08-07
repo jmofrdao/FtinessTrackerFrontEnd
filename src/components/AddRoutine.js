@@ -1,6 +1,7 @@
 import { addNewRoutine } from "../api"
 import React, {useState} from 'react'
 import { useNavigate } from "react-router-dom"
+import "./css/AddRoutine.css"
 
 const AddRoutine = ({routines, setRoutines}) => {
     const navigate = useNavigate()
@@ -32,7 +33,7 @@ const AddRoutine = ({routines, setRoutines}) => {
       }
     return (
         <div> 
-            <h1>Add A Routine</h1>
+            <h1 id="addRoutineTitle">Add A Routine</h1>
             {
             error && error.message ? <h3>Cannot create a Routine with a name that already exists.</h3>: null
 
@@ -53,7 +54,7 @@ const AddRoutine = ({routines, setRoutines}) => {
             Public?
             <input type="checkbox" id="public" onChange={handleCB} />
           </label>
-          <button type='submit'>CREATE</button>
+          <button type='submit' id="addRoutineButton">CREATE</button>
          </form>
         </div>
     )

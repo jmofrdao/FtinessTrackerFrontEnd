@@ -1,7 +1,7 @@
 import { getAllRoutines } from "../api"
 import React, {useState, useEffect} from 'react'
 import { NavLink } from "react-router-dom"
-
+import "./css/Routines.css"
 
 
 
@@ -20,14 +20,14 @@ fetchAllRoutines()
         
 
         return (
-            <div key={routine.id}>
+            <div key={routine.id} className="routineBlock">
                 <h2>Name: {routine.name}</h2>
                 <p>Goal: {routine.goal}</p>
                 <p>Username: {routine.creatorName}</p>
                 {routine.activities ?
                 routine.activities.map((element) => {
             return (
-                <div key={element.id}>
+                <div key={element.id} className="routineBlock">
                 <h2>Activity</h2>
                 <h3>Name: {element.name}</h3>
                 <p>Description: {element.description}</p>

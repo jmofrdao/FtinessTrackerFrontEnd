@@ -1,4 +1,4 @@
-.routineBlock {
+.myRoutinesActivityBlock {
     border: 2px solid black;
     margin-bottom: 10px;
     background-color: white;
@@ -6,11 +6,14 @@
     margin-top: 10px;
 }
 
-.routineActivityBlock {
+.myRoutineBlock {
     border: 2px solid black;
     margin-bottom: 10px;
     background-color: white;
     padding-left: 10px;
     margin-top: 10px;
-    margin-right: 10px
+}
+
+#myRoutinesTitle {
+    text-align: center;
 }

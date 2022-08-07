@@ -32,7 +32,7 @@ const AddActivity = ({setActivities, activities}) => {
      }
      return (
         <>
-        <div id="addActivityTitle">Add a Activity</div>
+        <div id="addActivityTitle">Add an Activity</div>
         {
             error && error.message ? <h3>{error.message}</h3>: null
 

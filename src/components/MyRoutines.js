@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {getMyRoutines, getUsersMe} from "../api";
 import {EditRoutine, RoutineActivity, DeleteRoutine} from './index'
 import { NavLink } from "react-router-dom";
+import "./css/MyRoutines.css"
 
 
 
@@ -23,13 +24,13 @@ if (user.username === username) {
       },[] );
     const showMyRoutines = myRoutines.map((myRoutine)=> {
       return (
-        <div key={myRoutine.id}>
+        <div key={myRoutine.id} className="myRoutineBlock">
           <h2>{myRoutine.name}</h2>
           <p>{myRoutine.goal}</p>
           {myRoutine.activities ? 
           myRoutine.activities.map((activity)=> {
             return (
-              <div key={activity.id}>
+              <div key={activity.id} className="myRoutinesActivityBlock">
               <h2>Activity</h2>
                 <h3>Name: {activity.name}</h3>
                 <p>Description: {activity.description}</p>
@@ -54,7 +55,7 @@ if (user.username === username) {
     })
     return (
         <div>
-          <h1>My Routines</h1>
+          <h1 id="myRoutinesTitle">My Routines</h1>
           <div>
             <NavLink to='/AddRoutine'>Add New Routine</NavLink>
             </div>

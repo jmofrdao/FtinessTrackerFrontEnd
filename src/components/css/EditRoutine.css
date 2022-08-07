@@ -1,0 +1,30 @@
+.inputEdit{
+    margin-bottom: 6px;
+  height: 23px;
+  width: 350px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#saveEdit {
+    background-clip: padding-box;
+    background-color: rgb(172, 31, 31);
+    border-radius: 0.25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    color: #fff;
+    cursor: pointer;
+    font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+      Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    margin: auto;
+    text-decoration: none;
+    transition: all 250ms;
+    width: 125px;
+    height: 33px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
