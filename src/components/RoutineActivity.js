@@ -25,6 +25,7 @@ const RoutineActivity = ({myRoutineId, setMyRoutines, activityname}) => {
             newRoutineActivity
             const addedRoutineActivity = await getMyRoutines(username)
             setMyRoutines(addedRoutineActivity)
+            
         }
     
     return(
