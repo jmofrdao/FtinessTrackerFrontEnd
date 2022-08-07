@@ -1,0 +1,65 @@
+#addActivityTitle {
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 25px;
+}
+
+.inputDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.name, 
+.description {
+    margin-bottom: 15px;
+    height: 23px;
+    width: 350px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+
+.createButton {
+    background-clip: padding-box;
+    background-color: rgb(172, 31, 31);
+    border-radius: 0.25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    color: #fff;
+    cursor: pointer;
+    font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+      Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    margin: auto;
+    text-decoration: none;
+    transition: all 250ms;
+    width: 125px;
+    height: 33px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .createButton:hover,
+.createButton:focus {
+  background-color: rgb(253, 106, 106);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px;
+}
+
+.createButton:hover {
+  transform: translateY(-1px);
+}
+
+.createButton:active {
+  background-color: rgb(172, 31, 31);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  transform: translateY(0);
+}
