@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {getMyRoutines, getUsersMe} from "../api";
-import {EditRoutine, RoutineActivity, DeleteRoutine, DeleteRoutineActivity} from './index'
+import {EditRoutine, RoutineActivity, DeleteRoutine, DeleteRoutineActivity, EditRoutineActivity} from './index'
 import { NavLink } from "react-router-dom";
+
 
 
 
@@ -10,6 +11,7 @@ import { NavLink } from "react-router-dom";
 const MyRoutines = ({setMyRoutines, myRoutines}) => {
   const [isShown, setIsShown] = useState(false)
   const [isShown2, setIsShown2] = useState(false)
+  const [isShown3, setIsShown3] = useState(false)
 async function fetchMyRoutines() {
 const token = localStorage.getItem('token')
 const username = localStorage.getItem('username')
@@ -25,6 +27,10 @@ async function buttonClick () {
 
 async function buttonClick2 () {
   setIsShown2(current => !current)
+}
+
+async function buttonClick3 () {
+  setIsShown3(current => !current)
 }
     
     useEffect(() => {
@@ -44,6 +50,8 @@ async function buttonClick2 () {
                 <p>Description: {activity.description}</p>
                 <p>Duration: {activity.duration}</p>
                 <p>Count: {activity.count}</p>
+                <button onClick={buttonClick3}>EDIT ACTIVITY</button>
+                {isShown3 && <EditRoutineActivity setMyRoutines={setMyRoutines} myRoutines={myRoutines} routineActivityId={activity.routineActivityId}/>}
                 <DeleteRoutineActivity setMyRoutines={setMyRoutines} myRoutines={myRoutines} routineActivityId={activity.routineActivityId}/>
               </div>
             )

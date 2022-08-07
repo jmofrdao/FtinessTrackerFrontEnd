@@ -192,3 +192,19 @@ const result = await response.json()
 console.log(result, "ra result")
 return result
 }
+
+export const editRoutineActivity = async (routineActivityId, token, count, duration) => {
+    const response = await fetch (`${BASE}/routine_activities/${routineActivityId}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+            count: count,
+            duration: duration
+        })
+    });
+    const result = await response.json()
+    return result
+}
