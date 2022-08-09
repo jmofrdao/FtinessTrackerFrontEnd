@@ -38,7 +38,7 @@ const App = () => {
       <div>
         {isLoggedIn ? (
           <Routes>
-            <Route path="/Home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route
               path="/MyRoutines"
               element={
@@ -99,6 +99,7 @@ const App = () => {
         ) : (
           <div>
             <Routes>
+            <Route path="/" element={<Home />} />
               <Route
                 path="/Routines"
                 element={

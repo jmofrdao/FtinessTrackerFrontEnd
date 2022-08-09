@@ -33,7 +33,7 @@ const Header = ({ isLoggedIn }) => {
             </NavLink>
 
             <NavLink to="/Login" className="navBarTabs">
-              Sign Up/Sign In
+              Sign In/Sign Up
             </NavLink>
             <NavLink to="/Routines" className="navBarTabs">
               Routines
