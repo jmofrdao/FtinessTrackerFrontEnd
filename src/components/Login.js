@@ -35,6 +35,7 @@ const Login = ({
   };
   return (
     <form onSubmit={handleSubmit}>
+      <h1>Log into your account!</h1>
       {error && error.message ? <h3>{error.message}</h3> : null}
       <label>Username:</label>
       <input
