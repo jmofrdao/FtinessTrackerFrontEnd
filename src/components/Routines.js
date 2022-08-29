@@ -38,7 +38,7 @@ const Routines = ({ routines, setRoutines }) => {
 
   return (
     <div>
-      <h1>Routines</h1>
+      <h1 className='routineTitle'>Routines</h1>
 
       <div>{allRoutines}</div>
     </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import "./css/Logout.css"
 
 const Logout = ({ setIsLoggedIn, setUsername, setPassword }) => {
   const navigate = useNavigate();
@@ -15,11 +16,11 @@ const Logout = ({ setIsLoggedIn, setUsername, setPassword }) => {
   const username = localStorage.getItem("username");
 
   return (
-    <>
+    <div className="logoutDiv">
       <h1>Are you sure you want to logout {username}?</h1>
-      <NavLink to="/">Return Home</NavLink>
+      <NavLink to="/" className='returnHome'>Return Home</NavLink>
       <button onClick={handleUserLogout}>Logout</button>
-    </>
+    </div>
   );
 };
 

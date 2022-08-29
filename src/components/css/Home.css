@@ -1,17 +1,26 @@
-.homeTitle {
-    text-align: center;
-    font-weight: bold;
-    font-size: 100px;
-    margin-top: 25px;
-    color: white;
+.homeDiv {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
 }
-.homeP {
-    text-align: center;
-    font-size: 40px;
-    color: white;
+
+.homePic {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
-.home2p {
+
+.welcome {
+    font-size: 80px;
+    color: red;
     text-align: center;
-    font-size: 30px;
-    color: white;
+    position: absolute;
+    top: 0;
+    bottom: 800px;
+    left: 0;
+    right: 0;
+    height: fit-content;
+    margin: auto;
 }
+
+
