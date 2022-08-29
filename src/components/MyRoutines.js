@@ -102,10 +102,13 @@ const MyRoutines = ({ setMyRoutines, myRoutines }) => {
   return (
     <div>
       <h1 id="myRoutinesTitle">My Routines</h1>
-      <div>
-        <NavLink to="/AddRoutine">Add New Routine</NavLink>
+      <div className='addRoutine'>
+        <NavLink to="/AddRoutine">Create Routine</NavLink>
       </div>
-      {showMyRoutines}
+      {showMyRoutines.length === 0 ?
+      <img className='routinePic' src={require('./Pic/running_at_sunset-1296x728-header.webp')}/>
+      : showMyRoutines
+    }
     </div>
   );
 };

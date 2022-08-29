@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../api";
+import "./css/Login.css"
 
 const Login = ({
   username,
@@ -34,7 +35,11 @@ const Login = ({
     navigate("/Register");
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <div className='homeDiv'>
+       <img className='loginPic' src={require('./Pic/lifting.webp')}/>
+    <form className='formSub' onSubmit={handleSubmit}>
+    
+      
       <h1>Log into your account!</h1>
       {error && error.message ? <h3>{error.message}</h3> : null}
       <label>Username:</label>
@@ -59,7 +64,9 @@ const Login = ({
       <button type="submit" onClick={registerButton}>
         Sign Up!
       </button>
+     
     </form>
+    </div>
   );
 };
 

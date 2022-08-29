@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { registerPerson } from "../api";
+import "./css/Register.css"
 
 const Register = ({
   username,
@@ -28,8 +29,9 @@ const Register = ({
     }
   }
   return (
-    <div id="registerBox">
-      <form id="registerFlex" onSubmit={handleSubmit}>
+    <div className="registerBox">
+      <img className='registerPic' src={require('./Pic/weightLift.jpeg')}/>
+      <form className="registerFlex" onSubmit={handleSubmit}>
         <h1>Register for your Fitness Tracker account</h1>
         {error && error.message ? <h3>{error.message}</h3> : null}
         {myResult && myResult.message ? <h3>{myResult.message}</h3> : null}
